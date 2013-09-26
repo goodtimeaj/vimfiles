@@ -1,0 +1,211 @@
+# Core
+[submodule "core/pathogen"]
+	path = core/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+
+# Colors
+[submodule "colors/codeschool"]
+	path = colors/codeschool
+	url = https://github.com/29decibel/codeschool-vim-theme.git
+[submodule "colors/getafe"]
+	path = colors/getafe
+	url = https://github.com/larssmit/vim-getafe.git
+[submodule "colors/github"]
+	path = colors/github
+	url = https://github.com/telamon/vim-color-github.git
+[submodule "colors/greyhouse"]
+	path = colors/greyhouse
+	url = https://github.com/gregstallings/vim-greyhouse.git
+[submodule "colors/habilight"]
+	path = colors/habilight
+	url = https://github.com/vim-scripts/habiLight.git
+[submodule "colors/irblack"]
+	path = colors/irblack
+	url = https://github.com/wesgibbs/vim-irblack.git
+[submodule "colors/jellybeans"]
+	path = colors/jellybeans
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "colors/mayansmoke"]
+	path = colors/mayansmoke
+	url = https://github.com/vim-scripts/mayansmoke.git
+[submodule "colors/molokai"]
+	path = colors/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "colors/monokai"]
+	path = colors/monokai
+	url = https://github.com/sickill/vim-monokai.git
+[submodule "colors/mustang"]
+	path = colors/mustang
+	url = https://github.com/croaker/mustang-vim.git
+[submodule "colors/newspaper"]
+	path = colors/newspaper
+	url = https://github.com/vim-scripts/newspaper.vim.git
+[submodule "colors/pyte"]
+	path = colors/pyte
+	url = https://github.com/vim-scripts/pyte.git
+[submodule "colors/railscasts"]
+	path = colors/railscasts
+	url = https://github.com/jpo/vim-railscasts-theme.git
+[submodule "colors/sahara"]
+	path = colors/sahara
+	url = https://github.com/tejr/sahara.git
+[submodule "colors/solarized"]
+	path = colors/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "colors/twilight"]
+	path = colors/twilight
+	url = https://github.com/matthewtodd/vim-twilight.git
+[submodule "colors/vividchalk"]
+	path = colors/vividchalk
+	url = https://github.com/tpope/vim-vividchalk.git
+[submodule "colors/zmrok"]
+	path = colors/zmrok
+	url = https://github.com/vim-scripts/Zmrok.git
+
+# Langs
+[submodule "langs/applescripts"]
+	path = langs/applescripts
+	url = https://github.com/vim-scripts/applescript.vim.git
+[submodule "langs/clojure"]
+	path = langs/clojure
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule "langs/coffeescript"]
+	path = langs/coffeescript
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "langs/csv"]
+	path = langs/csv
+	url = https://github.com/chrisbra/csv.vim.git
+[submodule "langs/cucumber"]
+	path = langs/cucumber
+	url = https://github.com/tpope/vim-cucumber.git
+[submodule "langs/elixir"]
+	path = langs/elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "langs/erlang"]
+	path = langs/erlang
+	url = https://github.com/jimenezrick/vimerl.git
+[submodule "langs/git"]
+	path = langs/git
+	url = https://github.com/tpope/vim-git.git
+[submodule "langs/golang"]
+	path = langs/golang
+	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "langs/haml"]
+	path = langs/haml
+	url = https://github.com/tpope/vim-haml.git
+[submodule "langs/handlebars"]
+	path = langs/handlebars
+	url = https://github.com/nono/vim-handlebars.git
+[submodule "langs/haskell"]
+	path = langs/haskell
+	url = https://github.com/wlangstroth/vim-haskell.git
+[submodule "langs/javascript"]
+	path = langs/javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "langs/less"]
+	path = langs/less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "langs/liquid"]
+	path = langs/liquid
+	url = https://github.com/tpope/vim-liquid.git
+[submodule "langs/markdown"]
+	path = langs/markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "langs/minitest"]
+	path = langs/minitest
+	url = https://github.com/sunaku/vim-ruby-minitest.git
+[submodule "langs/nodejs"]
+	path = langs/nodejs
+	url = https://github.com/mmalecki/vim-node.js.git
+[submodule "langs/puppet"]
+	path = langs/puppet
+	url = https://github.com/ajf/puppet-vim.git
+[submodule "langs/rails"]
+	path = langs/rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "langs/rspec"]
+	path = langs/rspec
+	url = https://github.com/skwp/vim-rspec.git
+[submodule "langs/ruby"]
+	path = langs/ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "langs/scala"]
+	path = langs/scala
+	url = https://github.com/rosstimson/scala-vim-support.git
+[submodule "langs/scss"]
+	path = langs/scss
+	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "langs/textile"]
+	path = langs/textile
+	url = https://github.com/timcharper/textile.vim.git
+
+# Tools
+[submodule "tools/abolish"]
+	path = tools/abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "tools/ack"]
+	path = tools/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "tools/commentary"]
+	path = tools/commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "tools/css-color"]
+	path = tools/css-color
+	url = https://github.com/skammer/vim-css-color.git
+[submodule "tools/ctrlp"]
+	path = tools/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "tools/delimitmate"]
+	path = tools/delimitmate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "tools/dispatch"]
+	path = tools/dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "tools/endwise"]
+	path = tools/endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "tools/fugitive"]
+	path = tools/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "tools/gundo"]
+	path = tools/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "tools/nerdtree"]
+	path = tools/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "tools/numbers"]
+	path = tools/numbers
+	url = https://github.com/myusuf3/numbers.vim.git
+[submodule "tools/repeat"]
+	path = tools/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "tools/smooth-scroll"]
+	path = tools/smooth-scroll
+	url = https://github.com/terryma/vim-smooth-scroll.git
+[submodule "tools/surround"]
+	path = tools/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "tools/tabular"]
+	path = tools/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "tools/tbone"]
+	path = tools/tbone
+	url = https://github.com/tpope/vim-tbone.git
+[submodule "tools/tmux-navigator"]
+	path = tools/tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "tools/turbux"]
+	path = tools/turbux
+	url = https://github.com/jgdavey/vim-turbux.git
+[submodule "tools/unimpaired"]
+	path = tools/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "tools/vimux"]
+	path = tools/vimux
+	url = https://github.com/benmills/vimux.git
+[submodule "tools/visual-star-search"]
+	path = tools/visual-star-search
+	url = https://github.com/nelstrom/vim-visual-star-search.git
+[submodule "tools/vroom"]
+	path = tools/vroom
+	url = https://github.com/skalnik/vim-vroom.git
