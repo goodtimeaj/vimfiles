@@ -47,18 +47,32 @@ done
 # Back up any existing configurations
 echo "Backing up any existing configurations"
 
-if [ -f "$HOME/.vimrc" ]; then
-  cp -R $(readlink "$HOME/.vimrc") "$HOME/.vimrc.bak"
+if [ -h "$HOME/.vimrc" ]; then
+  cp -R $(readlink "$HOME/.vimrc") "$HOME/.vimrc.old"
+else
+  if [ -f "$HOME/.vimrc" ]; then
+    cp -R "$HOME/.vimrc" "$HOME/.vimrc.old"
+  fi
 fi
 
-if [ -f "$HOME/.gvimrc" ]; then
-  cp -R $(readlink "$HOME/.gvimrc") "$HOME/.gvimrc.bak"
+if [ -h "$HOME/.gvimrc" ]; then
+  cp -R $(readlink "$HOME/.gvimrc") "$HOME/.gvimrc.old"
+else
+  if [ -f "$HOME/.gvimrc" ]; then
+    cp -R "$HOME/.gvimrc" "$HOME/.gvimrc.old"
+  fi
 fi
 
-if [ -d "$HOME/.vim.bak" ]; then
-  # Remove any existing ~/.vim.bak because of `cp` issues
-  rm -rf "$HOME/.vim.bak"
-  cp -R $(readlink "$HOME/.vim") "$HOME/.vim.bak"
+if [ -h "$HOME/.vim" ]; then
+  # Remove any existing ~/.vim.old because of `cp` issues
+  rm -rf "$HOME/.vim.old"
+  cp -R $(readlink "$HOME/.vim") "$HOME/.vim.old"
+else
+  if [ -d "$HOME/.vim" ]; then
+    # Remove any existing ~/.vim.old because of `cp` issues
+    rm -rf "$HOME/.vim.old"
+    cp -R "$HOME/.vim" "$HOME/.vim.old"
+  fi
 fi
 
 echo "Minifying *.vim files"
