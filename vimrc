@@ -449,6 +449,11 @@ cnoremap W) w
 cnoremap x) q
 cnoremap X) q
 
+" Disable parentheses in normal mode since they are too easily triggered when
+" shifts are externally mapped to parentheses
+nnoremap ( <nop>
+nnoremap ) <nop>
+
 " Disable arrow keys in normal mode and insert mode
 noremap <left> <nop>
 noremap <right> <nop>
