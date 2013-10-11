@@ -442,6 +442,13 @@ cabbrev X <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'x' : 'X')<cr>
 " Set <c-c> in insert mode like cli
 inoremap <c-c> <esc>
 
+" Don't save files named ")" since this is a common mistake when shifts are
+" externally mapped to parentheses
+cnoremap w) w
+cnoremap W) w
+cnoremap x) q
+cnoremap X) q
+
 " Disable arrow keys in normal mode and insert mode
 noremap <left> <nop>
 noremap <right> <nop>
