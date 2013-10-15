@@ -47,20 +47,12 @@ done
 # Back up any existing configurations
 echo "Backing up any existing configurations"
 
-if [ -h "$HOME/.vimrc" ]; then
-  cp -R $(readlink "$HOME/.vimrc") "$HOME/.vimrc.old"
-else
-  if [ -f "$HOME/.vimrc" ]; then
-    cp -R "$HOME/.vimrc" "$HOME/.vimrc.old"
-  fi
+if [ -e "$HOME/.vimrc" ]; then
+  cp "$HOME/.vimrc" "$HOME/.vimrc.old"
 fi
 
-if [ -h "$HOME/.gvimrc" ]; then
-  cp -R $(readlink "$HOME/.gvimrc") "$HOME/.gvimrc.old"
-else
-  if [ -f "$HOME/.gvimrc" ]; then
-    cp -R "$HOME/.gvimrc" "$HOME/.gvimrc.old"
-  fi
+if [ -e "$HOME/.gvimrc" ]; then
+  cp "$HOME/.gvimrc" "$HOME/.gvimrc.old"
 fi
 
 if [ -h "$HOME/.vim" ]; then
