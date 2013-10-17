@@ -442,12 +442,22 @@ cabbrev X <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'x' : 'X')<cr>
 " Set <c-c> in insert mode like cli
 inoremap <c-c> <esc>
 
+" Don't save files named ":" or ";"
+cnoremap w; w
+cnoremap W; w
+cnoremap x; x
+cnoremap X; x
+cnoremap w: w
+cnoremap W: w
+cnoremap x: x
+cnoremap X: x
+
 " Don't save files named ")" since this is a common mistake when shifts are
 " externally mapped to parentheses
 cnoremap w) w
 cnoremap W) w
-cnoremap x) q
-cnoremap X) q
+cnoremap x) x
+cnoremap X) x
 
 " Disable parentheses in normal mode since they are too easily triggered when
 " shifts are externally mapped to parentheses
