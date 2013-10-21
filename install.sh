@@ -2,14 +2,24 @@
 #
 # Minifies and symlinks vimfiles to $HOME.
 
+# Prints usage
+usage() {
+  cat << EOF
+usage: $0 [-s|--submodules] [-h|--help]
+
+OPTIONS:
+  -s | --submodules    Initialize and update included git submodules
+EOF
+}
+
 # Exits with given error message
-function die() {
+die() {
   echo "$@"
   exit 1
 }
 
 # Minifies vim script files in place
-function minify_vim_script_file_in_place() {
+minify_vim_script_file_in_place() {
   # 1. Convert tabs to spaces
   # 2. Remove blank lines
   # 3. Remove beginning spaces
@@ -18,7 +28,7 @@ function minify_vim_script_file_in_place() {
 
   # Set LANG as C to treat all ASCII characters as themselves and all
   # non-ASCII characters as literals
-  env LANG=C sed 's/	/ /g' "$@" \
+  env LANG=C sed 's/	/ /g' "$1" \
     | env LANG=C sed '/^$/d' \
     | env LANG=C sed 's/^[ ]*//' \
     | env LANG=C sed '/^[ ]*"/d' \
@@ -26,20 +36,37 @@ function minify_vim_script_file_in_place() {
     > tmp
 
   # Copy tmp to the given file and remove tmp
-  cp tmp "$@"
+  cp tmp "$1"
   rm tmp
 }
 
 HERE=$(dirname "$0") && HERE=$(cd "$HERE" && pwd -P)
-cd $HERE
 
-# Update git submodules with `g` option
-while getopts "g" opt; do
-  case $opt in
-    g)
+while :
+do
+  case "$1" in
+    -h | --help )
+      usage
+      exit 0
+      ;;
+    -s | --submodules )
       echo "Updating git submodules"
+      cd $HERE
       (git submodule init && git submodule update) \
         || die "Could not update git submodules"
+      shift
+      ;;
+    -- )
+      shift
+      break
+      ;;
+    -* )
+      echo "Unknown option: $1"
+      usage
+      exit 1
+      ;;
+    * )
+      break
       ;;
   esac
 done
@@ -47,45 +74,50 @@ done
 # Back up any existing configurations
 echo "Backing up any existing configurations"
 
-if [ -e "$HOME/.vimrc" ]; then
-  cp "$HOME/.vimrc" "$HOME/.vimrc.old"
-fi
-
-if [ -e "$HOME/.gvimrc" ]; then
-  cp "$HOME/.gvimrc" "$HOME/.gvimrc.old"
-fi
+# Actually copy the contents of the symlinks (or regular files), not just the
+# link if exists
+for file in "$HOME/.vimrc" "$HOME/.gvimrc"; do
+  if [ -e $file ]; then
+    cp -v "$file" "${file}.old" || die "Could not copy ${file} to ${file}.old"
+  fi
+done
 
 if [ -h "$HOME/.vim" ]; then
-  # Remove any existing ~/.vim.old because of `cp` issues
+  # Remove any existing ~/.vim.old because of `cp` symlink issues
   rm -rf "$HOME/.vim.old"
-  cp -R $(readlink "$HOME/.vim") "$HOME/.vim.old"
+  echo "Copying symlink ${HOME}/.vim contents to ${HOME}/.vim.old"
+  cp -R $(readlink "$HOME/.vim") "$HOME/.vim.old" \
+    || die "Could not copy ${HOME}/.vim to ${HOME}/.vim.old"
 else
   if [ -d "$HOME/.vim" ]; then
-    # Remove any existing ~/.vim.old because of `cp` issues
-    rm -rf "$HOME/.vim.old"
-    cp -R "$HOME/.vim" "$HOME/.vim.old"
+    echo "Renaming ${HOME}/.vim to ${HOME}/.vim.old"
+    mv -R "$HOME/.vim" "$HOME/.vim.old" \
+      || die "Could not move ${HOME}/.vim to ${HOME}/.vim.old"
   fi
 fi
 
 echo "Minifying *.vim files"
 
-# Remove any existing vim.min because of `cp` issues
-rm -rf vim.min
-mkdir vim.min
+# Remove any existing ./vim.min because of `cp` symlink issues
+rm -rf "$HERE/vim.min"
+mkdir "$HERE/vim.min"
 
 # Copy vim files, locally, to be minified
-cp vimrc vimrc.min
-cp gvimrc gvimrc.min
-cp -R colors vim.min/colors
-cp -R core vim.min/core
-cp -R langs vim.min/langs
-cp -R tools vim.min/tools
+cp "$HERE/vimrc" "$HERE/vimrc.min"
+cp "$HERE/gvimrc" "$HERE/gvimrc.min"
+
+for dir in "$HERE/"*; do
+  basename=$(basename ${dir})
+  if [[ ( -d "$dir" ) && ( "$basename" != 'vim.min' ) ]]; then
+    cp -R "$dir" "$HERE/vim.min/$basename"
+  fi
+done
 
 # Minify
-minify_vim_script_file_in_place vimrc.min
-minify_vim_script_file_in_place gvimrc.min
-find vim.min -name '*.vim' \
-  | while read i; do minify_vim_script_file_in_place "$i"; done
+minify_vim_script_file_in_place "$HERE/vimrc.min"
+minify_vim_script_file_in_place "$HERE/gvimrc.min"
+find "$HERE/vim.min" -name '*.vim' \
+  | while read file; do minify_vim_script_file_in_place "$file"; done
 
 # Remove any existing ~/.vim to avoid any recursive linking since GNU `ln`
 # doesn't have `h` option
