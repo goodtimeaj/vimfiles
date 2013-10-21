@@ -6,7 +6,8 @@
 " Thanks:
 " @garybernhardt
 " @tpope
-" @carlhuda
+" @carllerche
+" @wycats
 " @nelstrom
 " @mislav
 " @mathiasbynens
