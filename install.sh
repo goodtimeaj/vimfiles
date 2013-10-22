@@ -100,16 +100,21 @@ echo "Minifying *.vim files"
 
 # Remove any existing ./vim.min because of `cp` symlink issues
 rm -rf "$HERE/vim.min"
-mkdir "$HERE/vim.min"
+mkdir -p "$HERE/vim.min/bundle"
 
 # Copy vim files, locally, to be minified
 cp "$HERE/vimrc" "$HERE/vimrc.min"
 cp "$HERE/gvimrc" "$HERE/gvimrc.min"
 
-for dir in "$HERE/"*; do
-  basename=$(basename ${dir})
-  if [[ ( -d "$dir" ) && ( "$basename" != 'vim.min' ) ]]; then
-    cp -R "$dir" "$HERE/vim.min/$basename"
+# Consolidate all plugins into bundle and save pathogen from having to load
+# multiple paths
+for file in "$HERE/"*; do
+  dir_name=$(basename ${file})
+  if [[ ( -d "$file" ) && ( "$dir_name" != 'vim.min' ) ]]; then
+    for plugin in "$file/"*; do
+      plugin_name=$(basename ${plugin})
+      cp -R "$plugin" "$HERE/vim.min/bundle/$plugin_name"
+    done
   fi
 done
 

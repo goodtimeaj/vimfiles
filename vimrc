@@ -23,8 +23,8 @@ autocmd!
 set nocompatible
 
 " Load plugins with Pathogen
-runtime core/pathogen/autoload/pathogen.vim
-execute pathogen#infect('colors/{}', 'langs/{}', 'tools/{}')
+runtime bundle/pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 " Enable file type detection and load plugin indent files
 filetype plugin indent on
