@@ -218,7 +218,7 @@ set wildignore+=*.swp,*~,._*
 
 set hlsearch   " Highlight searches
 set incsearch  " Highlight dynamically as pattern is typed
-set ignorecase " Make searches case-sensitive...
+set ignorecase " Make searches case-insensitive...
 set smartcase  " ...unless they contain at least one uppercase character
 set gdefault   " Use global search by default
 
