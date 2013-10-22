@@ -19,8 +19,7 @@
 " Clear autocmds
 autocmd!
 
-" Use Vim settings, rather than Vi settings
-" This must be first because it changes other options as a side effect
+" Use Vim settings, rather than Vi settings (default when a vimrc exists)
 set nocompatible
 
 " Load plugins with Pathogen
@@ -28,7 +27,6 @@ runtime core/pathogen/autoload/pathogen.vim
 execute pathogen#infect('colors/{}', 'langs/{}', 'tools/{}')
 
 " Enable file type detection and load plugin indent files
-filetype plugin on
 filetype plugin indent on
 
 " Load vimrc from current directory and disable unsafe commands in them
@@ -116,6 +114,9 @@ set noshowmatch
 
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
+
+" Set <c-c> to escape in insert mode
+inoremap <c-c> <esc>
 
 " =============================================================================
 " Appearance
@@ -439,9 +440,6 @@ nnoremap <silent> <leader>m :Marked<cr>\|:redraw!<cr>
 command! W :w
 command! Q :q
 cabbrev X <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'x' : 'X')<cr>
-
-" Set <c-c> in insert mode like cli
-inoremap <c-c> <esc>
 
 " Don't save files named ":" or ";"
 cnoremap w; w
