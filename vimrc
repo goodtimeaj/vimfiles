@@ -389,7 +389,7 @@ set synmaxcol=256
 "" CtrlP
 ""
 
-" CtrlP Window at top
+" CtrlP window at top
 let g:ctrlp_match_window_bottom = 0
 
 ""
@@ -438,7 +438,7 @@ command! Marked silent !open -a "Marked.app" "%:p"
 nnoremap <silent> <leader>m :Marked<cr>\|:redraw!<cr>
 
 " =============================================================================
-" Human Error
+" Typos, Errors, and Typing Discipline
 " =============================================================================
 
 " Fix common mistypes
