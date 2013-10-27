@@ -200,6 +200,9 @@
 [submodule "tools/unimpaired"]
 	path = tools/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "tools/vim-pipe"]
+	path = tools/vim-pipe
+	url = https://github.com/krisajenkins/vim-pipe.git
 [submodule "tools/vimux"]
 	path = tools/vimux
 	url = https://github.com/benmills/vimux.git
