@@ -330,6 +330,12 @@ augroup vimrcEx
   " Make Python follow PEP8
   au FileType python set sts=4 ts=4 sw=4 tw=79
 
+  " Make sure all markdown files have the correct filetype
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+
+  " MultiMarkdown requires 4-space tabs
+  au FileType markdown set sts=4 ts=4 sw=4
+
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there
   au! CmdwinEnter * :unmap <cr>
