@@ -386,13 +386,6 @@ set synmaxcol=256
 " =============================================================================
 
 ""
-"" CtrlP
-""
-
-" CtrlP window at top
-let g:ctrlp_match_window_bottom = 0
-
-""
 "" Fugitive
 ""
 
