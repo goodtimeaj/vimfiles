@@ -429,6 +429,12 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 14, 2)<cr>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 22, 4)<cr>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
 
+""
+"" Surround
+""
+
+nmap <leader>` ysiw`
+
 " =============================================================================
 " Application Interaction
 " =============================================================================
