@@ -50,10 +50,18 @@ do
       exit 0
       ;;
     -s | --submodules )
-      echo "Updating git submodules"
-      cd $HERE
-      (git submodule init && git submodule update) \
-        || die "Could not update git submodules"
+      cd "$HERE"
+
+      # Sync git submodules if already initialized
+      if [ -f "$HERE/core/pathogen/autoload/pathogen.vim" ]; then
+        echo "Updating git submodules"
+        (git submodule sync && git submodule update --init) \
+          || die "Could not sync git submodules"
+      else
+        echo "Initializing git submodules"
+        (git submodule init && git submodule update) \
+          || die "Could not update git submodules"
+      fi
       shift
       ;;
     -- )
