@@ -1,3 +1,6 @@
 /doc/tags
 .netrwhist
-*.min
+vimrc.min
+gvimrc.min
+vim.min/*
+!vim.min/.gitkeep
