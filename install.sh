@@ -109,6 +109,7 @@ echo "Minifying *.vim files"
 # Remove any existing ./vim.min because of `cp` symlink issues
 rm -rf "${here}/vim.min"
 mkdir -p "${here}/vim.min/bundle"
+touch "${here}/vim.min/.gitkeep"
 
 # Copy vim files, locally, to be minified
 cp "${here}/vimrc" "${here}/vimrc.min"
