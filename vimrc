@@ -118,6 +118,9 @@ imap <c-l> <space>=><space>
 " Set <c-c> to escape in insert mode
 inoremap <c-c> <esc>
 
+" Set <c-j> to underscore in insert mode
+inoremap <c-j> _
+
 " =============================================================================
 " Appearance
 " =============================================================================
