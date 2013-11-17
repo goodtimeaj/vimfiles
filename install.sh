@@ -106,31 +106,30 @@ fi
 
 echo "Minifying *.vim files"
 
-# Remove any existing ./vim.min because of `cp` symlink issues
-rm -rf "${here}/vim.min"
-mkdir -p "${here}/vim.min/bundle"
-touch "${here}/vim.min/.gitkeep"
+# Remove any existing ./build/vim.min because of `cp` symlink issues
+rm -rf "${here}/build/vim.min"
+mkdir -p "${here}/build/vim.min/bundle"
 
 # Copy vim files, locally, to be minified
-cp "${here}/vimrc" "${here}/vimrc.min"
-cp "${here}/gvimrc" "${here}/gvimrc.min"
+cp "${here}/vimrc" "${here}/build/vimrc.min"
+cp "${here}/gvimrc" "${here}/build/gvimrc.min"
 
 # Consolidate all plugins into bundle and save pathogen from having to load
 # multiple paths
 for file in "$here"/*; do
   dir_name="$(basename "$file")"
-  if [[ ( -d "$file" ) && ( "$dir_name" != "vim.min" ) ]]; then
+  if [[ ( -d "$file" ) && ( "$dir_name" != "build" ) ]]; then
     for plugin in "$file"/*; do
       plugin_name="$(basename "$plugin")"
-      cp -R "$plugin" "${here}/vim.min/bundle/${plugin_name}"
+      cp -R "$plugin" "${here}/build/vim.min/bundle/${plugin_name}"
     done
   fi
 done
 
 # Minify
-minify_vim_script_file_in_place "${here}/vimrc.min"
-minify_vim_script_file_in_place "${here}/gvimrc.min"
-find "${here}/vim.min" -name "*.vim" \
+minify_vim_script_file_in_place "${here}/build/vimrc.min"
+minify_vim_script_file_in_place "${here}/build/gvimrc.min"
+find "${here}/build/vim.min" -name "*.vim" \
   | while read file; do minify_vim_script_file_in_place "$file"; done
 
 # Remove any existing ~/.vim to avoid any recursive linking since GNU `ln`
@@ -138,6 +137,6 @@ find "${here}/vim.min" -name "*.vim" \
 rm -rf "${HOME}/.vim"
 
 # Link to minified configurations
-ln -sfv "${here}/vimrc.min" "${HOME}/.vimrc"
-ln -sfv "${here}/gvimrc.min" "${HOME}/.gvimrc"
-ln -sfv "${here}/vim.min" "${HOME}/.vim"
+ln -sfv "${here}/build/vimrc.min" "${HOME}/.vimrc"
+ln -sfv "${here}/build/gvimrc.min" "${HOME}/.gvimrc"
+ln -sfv "${here}/build/vim.min" "${HOME}/.vim"
