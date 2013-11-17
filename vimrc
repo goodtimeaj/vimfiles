@@ -271,11 +271,12 @@ set winwidth=80
 " Split windows below and right instead of above and left
 set splitbelow splitright
 
-" Move around splits with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" Move around splits with <c-h/j/k/l> - This is now handled by
+" tmux_navigator.vim - https://gist.github.com/mislav/5189704
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-l> <c-w>l
 
 " =============================================================================
 " Registers
