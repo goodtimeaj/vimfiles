@@ -102,6 +102,9 @@ endif
 " Use only 1 space after "." when joining lines instead of 2
 set nojoinspaces
 
+" Joining with indents is useless - instead join and delete spaces
+nnoremap gJ Jdiw
+
 ""
 "" Other
 ""
