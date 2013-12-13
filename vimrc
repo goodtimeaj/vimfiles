@@ -447,6 +447,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
 ""
 
 nmap <leader>` ysiw`
+nmap <leader>' ysiw'
 
 " =============================================================================
 " Application Interaction
