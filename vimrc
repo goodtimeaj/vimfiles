@@ -294,8 +294,8 @@ map <leader>y "*y
 " Paste from unnamed register and fix indentation
 nmap <leader>p pV`]=
 
-" Repeat the last macro in the `x` register
-nmap <leader>2 @x
+" Repeat the last macro in the `q` register
+nmap <leader>2 @q
 
 " Replace the text inside a tag object with the clipboard contents
 nmap <leader>j cit<esc>p
