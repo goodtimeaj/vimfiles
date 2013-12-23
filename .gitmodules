@@ -215,3 +215,8 @@
 [submodule "tools/syntastic"]
 	path = tools/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+
+# External
+[submodule "vimrc-labs"]
+	path = vimrc-labs
+	url = git@github.com:gregstallings/vimrc-labs.git

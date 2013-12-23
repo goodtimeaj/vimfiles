@@ -112,10 +112,6 @@ echo "Minifying *.vim files"
 rm -rf "${here}/build/vim.min"
 mkdir -p "${here}/build/vim.min/bundle"
 
-# Copy vim files, locally, to be minified
-cp "${here}/vimrc" "${here}/build/vimrc.min"
-cp "${here}/gvimrc" "${here}/build/gvimrc.min"
-
 # Consolidate all plugins into bundle and save pathogen from having to load
 # multiple paths
 for file in "$here"/*; do
@@ -127,6 +123,16 @@ for file in "$here"/*; do
     done
   fi
 done
+
+# Copy vim files, locally, to be minified
+
+cp "${here}/gvimrc" "${here}/build/gvimrc.min"
+
+# Concatenate vimrc and vimrc-labs/vimrc into build/vimrc.min
+touch "${here}/build/vimrc.min"
+cat /dev/null > "${here}/build/vimrc.min"
+cat "${here}/vimrc" >> "${here}/build/vimrc.min"
+cat "${here}/vimrc-labs/vimrc" >> "${here}/build/vimrc.min"
 
 # Minify
 minify_vim_script_file_in_place "${here}/build/vimrc.min"
