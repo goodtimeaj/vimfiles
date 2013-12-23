@@ -7,15 +7,9 @@
 [submodule "colors/codeschool"]
 	path = colors/codeschool
 	url = https://github.com/29decibel/codeschool-vim-theme.git
-[submodule "colors/getafe"]
-	path = colors/getafe
-	url = https://github.com/larssmit/vim-getafe.git
 [submodule "colors/github"]
 	path = colors/github
 	url = https://github.com/telamon/vim-color-github.git
-[submodule "colors/greyhouse"]
-	path = colors/greyhouse
-	url = https://github.com/gregstallings/vim-greyhouse.git
 [submodule "colors/habilight"]
 	path = colors/habilight
 	url = https://github.com/vim-scripts/habiLight.git
@@ -58,11 +52,6 @@
 [submodule "colors/vividchalk"]
 	path = colors/vividchalk
 	url = https://github.com/tpope/vim-vividchalk.git
-[submodule "colors/zmrok"]
-	path = colors/zmrok
-	url = https://github.com/vim-scripts/Zmrok.git
-
-# Langs
 [submodule "langs/applescripts"]
 	path = langs/applescripts
 	url = https://github.com/vim-scripts/applescript.vim.git
