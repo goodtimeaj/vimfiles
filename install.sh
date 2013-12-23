@@ -116,7 +116,11 @@ mkdir -p "${here}/build/vim.min/bundle"
 # multiple paths
 for file in "$here"/*; do
   dir_name="$(basename "$file")"
-  if [[ ( -d "$file" ) && ( "$dir_name" != "build" ) ]]; then
+  if [[ ( -d "$file" ) &&
+        ( "$dir_name" != "build" ) &&
+        ( "$dir_name" != "bin" ) &&
+        ( "$dir_name" != "vimrc-labs" )
+     ]]; then
     for plugin in "$file"/*; do
       plugin_name="$(basename "$plugin")"
       cp -R "$plugin" "${here}/build/vim.min/bundle/${plugin_name}"
