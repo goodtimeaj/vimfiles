@@ -297,6 +297,10 @@ nmap <leader>p pV`]=
 " Repeat the last macro in the `q` register
 nmap <leader>2 @q
 
+" Delete to the blackhole register
+nnoremap <leader>x "_x
+nnoremap <leader>d "_dd
+
 " =============================================================================
 " Backup
 " =============================================================================
