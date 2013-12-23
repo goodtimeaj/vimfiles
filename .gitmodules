@@ -212,3 +212,6 @@
 [submodule "tools/vroom"]
 	path = tools/vroom
 	url = https://github.com/skalnik/vim-vroom.git
+[submodule "tools/syntastic"]
+	path = tools/syntastic
+	url = https://github.com/scrooloose/syntastic.git

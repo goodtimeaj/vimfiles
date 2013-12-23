@@ -297,9 +297,6 @@ nmap <leader>p pV`]=
 " Repeat the last macro in the `q` register
 nmap <leader>2 @q
 
-" Replace the text inside a tag object with the clipboard contents
-nmap <leader>j cit<esc>p
-
 " =============================================================================
 " Backup
 " =============================================================================
