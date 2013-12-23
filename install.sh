@@ -80,6 +80,7 @@ do
 done
 
 # Back up any existing configurations
+echo
 echo "Backing up any existing configurations"
 
 # Actually copy the contents of the symlinks (or regular files), not just the
@@ -104,6 +105,7 @@ else
   fi
 fi
 
+echo
 echo "Minifying *.vim files"
 
 # Remove any existing ./build/vim.min because of `cp` symlink issues
@@ -140,3 +142,17 @@ rm -rf "${HOME}/.vim"
 ln -sfv "${here}/build/vimrc.min" "${HOME}/.vimrc"
 ln -sfv "${here}/build/gvimrc.min" "${HOME}/.gvimrc"
 ln -sfv "${here}/build/vim.min" "${HOME}/.vim"
+
+echo
+echo "Linking files in bin"
+
+# Create $HOME/bin if it doesn't already exist
+if [ ! -d "${HOME}/bin" ]; then
+  mkdir -v "${HOME}/bin"
+fi
+
+# Link files in bin to $HOME/bin
+for file in "${here}/bin"/*; do
+  filename="$(basename "$file")"
+  ln -sfv "${here}/bin/${filename}" "${HOME}/bin/${filename}"
+done
