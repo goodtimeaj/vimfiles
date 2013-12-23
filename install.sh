@@ -144,14 +144,10 @@ minify_vim_script_file_in_place "${here}/build/gvimrc.min"
 find "${here}/build/vim.min" -name "*.vim" \
   | while read file; do minify_vim_script_file_in_place "$file"; done
 
-# Remove any existing ~/.vim to avoid any recursive linking since GNU `ln`
-# doesn't have `h` option
-rm -rf "${HOME}/.vim"
-
 # Link to minified configurations
 ln -sfv "${here}/build/vimrc.min" "${HOME}/.vimrc"
 ln -sfv "${here}/build/gvimrc.min" "${HOME}/.gvimrc"
-ln -sfv "${here}/build/vim.min" "${HOME}/.vim"
+ln -sfvn "${here}/build/vim.min" "${HOME}/.vim"
 
 echo
 echo "Linking files in bin"
