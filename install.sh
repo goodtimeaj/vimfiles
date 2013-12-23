@@ -108,7 +108,7 @@ fi
 echo
 echo "Minifying *.vim files"
 
-# Remove any existing ./build/vim.min because of `cp` symlink issues
+# Remove any existing build/vim.min because of `cp` symlink issues
 rm -rf "${here}/build/vim.min"
 mkdir -p "${here}/build/vim.min/bundle"
 
@@ -116,6 +116,7 @@ mkdir -p "${here}/build/vim.min/bundle"
 # multiple paths
 for file in "$here"/*; do
   dir_name="$(basename "$file")"
+
   if [[ ( -d "$file" ) &&
         ( "$dir_name" != "build" ) &&
         ( "$dir_name" != "bin" ) &&
