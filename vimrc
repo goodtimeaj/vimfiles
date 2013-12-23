@@ -346,6 +346,9 @@ augroup vimrcEx
   " MultiMarkdown requires 4-space tabs
   au FileType markdown set sts=4 ts=4 sw=4
 
+  " Use 4-space tabs for apache
+  au FileType apache set sts=4 ts=4 sw=4
+
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there
   au! CmdwinEnter * :unmap <cr>
