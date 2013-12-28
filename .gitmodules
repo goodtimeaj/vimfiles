@@ -174,9 +174,6 @@
 [submodule "tools/surround"]
 	path = tools/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "tools/syntastic"]
-	path = tools/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "tools/tabular"]
 	path = tools/tabular
 	url = https://github.com/godlygeek/tabular.git
