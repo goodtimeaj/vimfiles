@@ -100,7 +100,7 @@ if [ -h "${HOME}/.vim" ]; then
 else
   if [ -d "${HOME}/.vim" ]; then
     echo "Renaming ${HOME}/.vim to ${HOME}/.vim.old"
-    mv -R "${HOME}/.vim" "${HOME}/.vim.old" \
+    mv "${HOME}/.vim" "${HOME}/.vim.old" \
       || die "Could not move ${HOME}/.vim to ${HOME}/.vim.old"
   fi
 fi
