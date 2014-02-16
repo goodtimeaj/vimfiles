@@ -191,6 +191,9 @@ cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
 " http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" Save with sudo and reload
+command! WW :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
 ""
 "" Wildmode
 ""
