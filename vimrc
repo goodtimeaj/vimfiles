@@ -464,12 +464,15 @@ nnoremap <silent> <leader>m :Marked<cr>\|:redraw!<cr>
 " Typos, Errors, and Typing Discipline
 " =============================================================================
 
-" Fix common mistypes
 " Overwrite :Q Ex mode and :X encryption
-" http://vim.wikia.com/wiki/Replace_a_builtin_command_using_cabbrev
 command! W :w
 command! Q :q
+" http://vim.wikia.com/wiki/Replace_a_builtin_command_using_cabbrev
 cabbrev X <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'x' : 'X')<cr>
+" Fix common mistypes
+cnoremap ww w
+cnoremap wW w
+cnoremap Ww w
 
 " Don't save files named ":" or ";"
 cnoremap w; w
