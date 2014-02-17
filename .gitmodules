@@ -76,9 +76,6 @@
 [submodule "langs/git"]
 	path = langs/git
 	url = https://github.com/tpope/vim-git.git
-[submodule "langs/golang"]
-	path = langs/golang
-	url = https://github.com/jnwhiteh/vim-golang.git
 [submodule "langs/haml"]
 	path = langs/haml
 	url = https://github.com/tpope/vim-haml.git
