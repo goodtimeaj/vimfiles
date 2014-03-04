@@ -10,12 +10,6 @@
 [submodule "colors/github"]
 	path = colors/github
 	url = https://github.com/telamon/vim-color-github.git
-[submodule "colors/habilight"]
-	path = colors/habilight
-	url = https://github.com/vim-scripts/habiLight.git
-[submodule "colors/irblack"]
-	path = colors/irblack
-	url = https://github.com/wesgibbs/vim-irblack.git
 [submodule "colors/jellybeans"]
 	path = colors/jellybeans
 	url = https://github.com/nanotech/jellybeans.vim.git
@@ -52,9 +46,6 @@
 [submodule "colors/vividchalk"]
 	path = colors/vividchalk
 	url = https://github.com/tpope/vim-vividchalk.git
-[submodule "langs/applescripts"]
-	path = langs/applescripts
-	url = https://github.com/vim-scripts/applescript.vim.git
 [submodule "langs/clojure"]
 	path = langs/clojure
 	url = https://github.com/guns/vim-clojure-static.git
@@ -64,9 +55,6 @@
 [submodule "langs/csv"]
 	path = langs/csv
 	url = https://github.com/chrisbra/csv.vim.git
-[submodule "langs/cucumber"]
-	path = langs/cucumber
-	url = https://github.com/tpope/vim-cucumber.git
 [submodule "langs/elixir"]
 	path = langs/elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
