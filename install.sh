@@ -28,12 +28,11 @@ minify_vim_script_file_in_place() {
 
   # Set LANG as C to treat all ASCII characters as themselves and all
   # non-ASCII characters as literals
-  env LANG=C sed 's/	/ /g' "$1" \
-    | env LANG=C sed '/^$/d' \
-    | env LANG=C sed 's/^[ ]*//' \
-    | env LANG=C sed '/^[ ]*"/d' \
-    | env LANG=C sed 's/[ ]*$//' \
-    > tmp
+  env LANG=C sed 's/	/ /g' "$1" |
+    env LANG=C sed '/^$/d' |
+    env LANG=C sed 's/^[ ]*//' |
+    env LANG=C sed '/^[ ]*"/d' |
+    env LANG=C sed 's/[ ]*$//' > tmp
 
   # Copy tmp to the given file and remove tmp
   cp tmp "$1"
@@ -142,8 +141,8 @@ cat "${here}/vimrc-labs/vimrc" >> "${here}/build/vimrc.min"
 # Minify
 minify_vim_script_file_in_place "${here}/build/vimrc.min"
 minify_vim_script_file_in_place "${here}/build/gvimrc.min"
-find "${here}/build/vim.min" -name "*.vim" \
-  | while read file; do minify_vim_script_file_in_place "$file"; done
+find "${here}/build/vim.min" -name "*.vim" |
+  while read file; do minify_vim_script_file_in_place "$file"; done
 
 # Link to minified configurations
 ln -sfv "${here}/build/vimrc.min" "${HOME}/.vimrc"
