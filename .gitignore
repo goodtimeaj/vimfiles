@@ -1,3 +1,2 @@
 .netrwhist
-build/*
-!build/.keep
+/build
