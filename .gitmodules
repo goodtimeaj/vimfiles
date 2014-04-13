@@ -188,9 +188,6 @@
 	url = https://github.com/skalnik/vim-vroom.git
 
 # External
-[submodule "vimrc-labs"]
-	path = vimrc-labs
-	url = git@github.com:gregstallings/vimrc-labs.git
 [submodule "langs/golang"]
 	path = langs/golang
 	url = https://github.com/jnwhiteh/vim-golang.git
