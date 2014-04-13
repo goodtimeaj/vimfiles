@@ -1,9 +1,6 @@
-# Core
 [submodule "core/pathogen"]
 	path = core/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-
-# Colors
 [submodule "colors/codeschool"]
 	path = colors/codeschool
 	url = https://github.com/29decibel/codeschool-vim-theme.git
@@ -112,8 +109,6 @@
 [submodule "langs/textile"]
 	path = langs/textile
 	url = https://github.com/timcharper/textile.vim.git
-
-# Tools
 [submodule "tools/abolish"]
 	path = tools/abolish
 	url = https://github.com/tpope/vim-abolish.git
@@ -186,8 +181,6 @@
 [submodule "tools/vroom"]
 	path = tools/vroom
 	url = https://github.com/skalnik/vim-vroom.git
-
-# External
 [submodule "langs/golang"]
 	path = langs/golang
 	url = https://github.com/jnwhiteh/vim-golang.git
