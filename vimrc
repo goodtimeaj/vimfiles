@@ -79,6 +79,9 @@ set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 " Don't show invisible characters (default)
 set nolist
 
+" Toggle set list
+nnoremap <leader>l :set list!<cr>
+
 ""
 "" Wrapping
 ""
