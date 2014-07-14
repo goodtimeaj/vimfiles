@@ -39,6 +39,16 @@ minify_vim_script_file_in_place() {
   rm tmp
 }
 
+# Returns the source file given a symlink target file
+readlink_posix() {
+  target_file="$1"
+  if [ -h "$target_file" ]; then
+    ls_res="$(LC_TIME=C ls -ld "$target_file")"
+    source_file=${ls_res#*"${target_file} -> "}
+    echo "$source_file"
+  fi
+}
+
 here=$(dirname "$0") && here=$(cd "$here" && pwd -P)
 
 while :
@@ -90,11 +100,12 @@ for file in "${HOME}/.vimrc" "${HOME}/.gvimrc"; do
   fi
 done
 
-if [ -h "${HOME}/.vim" ]; then
+if [ -h "${HOME}/.vim" ] && 
+   [ -e $(readlink_posix "${HOME}/.vim") ]; then
   # Remove any existing ~/.vim.old because of `cp` symlink issues
   rm -rf "${HOME}/.vim.old"
   echo "Copying symlink ${HOME}/.vim contents to ${HOME}/.vim.old"
-  cp -R "$(readlink "${HOME}/.vim")" "${HOME}/.vim.old" \
+  cp -R "$(readlink_posix "${HOME}/.vim")" "${HOME}/.vim.old" \
     || die "Could not copy ${HOME}/.vim to ${HOME}/.vim.old"
 else
   if [ -d "${HOME}/.vim" ]; then
@@ -116,11 +127,10 @@ mkdir -p "${here}/build/vim.min/bundle"
 for file in "$here"/*; do
   dir_name="$(basename "$file")"
 
-  if [[ ( -d "$file" ) &&
-        ( "$dir_name" != "build" ) &&
-        ( "$dir_name" != "bin" ) &&
-        ( "$dir_name" != "vimrc-labs" )
-     ]]; then
+  if [ -d "$file" ] &&
+     [ "$dir_name" != "build" ] &&
+     [ "$dir_name" != "bin" ] &&
+     [ "$dir_name" != "vimrc-labs" ]; then
     for plugin in "$file"/*; do
       plugin_name="$(basename "$plugin")"
       cp -R "$plugin" "${here}/build/vim.min/bundle/${plugin_name}"
