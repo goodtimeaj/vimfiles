@@ -127,6 +127,10 @@ inoremap <c-c> <esc>
 " Set <c-j> to underscore in insert mode
 inoremap <c-j> _
 
+" Disable number adding/subtracting with <c-a> and <c-x>
+nnoremap <c-a> <nop>
+nnoremap <c-x> <nop>
+
 " =============================================================================
 " Appearance
 " =============================================================================
