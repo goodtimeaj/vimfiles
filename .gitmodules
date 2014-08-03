@@ -181,9 +181,9 @@
 [submodule "langs/golang"]
 	path = langs/golang
 	url = https://github.com/jnwhiteh/vim-golang.git
-[submodule "langs/vim-javascript-syntax"]
-	path = langs/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "langs/mediawiki"]
 	path = langs/mediawiki
 	url = https://github.com/chikamichi/mediawiki.vim.git
+[submodule "langs/javascript"]
+	path = langs/javascript
+	url = https://github.com/jelera/vim-javascript-syntax.git
