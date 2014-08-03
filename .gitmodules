@@ -70,9 +70,6 @@
 [submodule "langs/haskell"]
 	path = langs/haskell
 	url = https://github.com/wlangstroth/vim-haskell.git
-[submodule "langs/less"]
-	path = langs/less
-	url = https://github.com/groenewege/vim-less.git
 [submodule "langs/liquid"]
 	path = langs/liquid
 	url = https://github.com/tpope/vim-liquid.git
