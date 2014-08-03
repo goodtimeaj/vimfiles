@@ -184,3 +184,6 @@
 [submodule "langs/vim-javascript-syntax"]
 	path = langs/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "langs/mediawiki"]
+	path = langs/mediawiki
+	url = https://github.com/chikamichi/mediawiki.vim.git
