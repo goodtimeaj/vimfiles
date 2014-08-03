@@ -104,7 +104,7 @@ if [ -h "${HOME}/.vim" ] &&
    [ -e $(readlink_posix "${HOME}/.vim") ]; then
   # Remove any existing ~/.vim.old because of `cp` symlink issues
   rm -rf "${HOME}/.vim.old"
-  echo "Copying symlink ${HOME}/.vim contents to ${HOME}/.vim.old"
+  echo "Copying contents of symlink ${HOME}/.vim to ${HOME}/.vim.old"
   cp -R "$(readlink_posix "${HOME}/.vim")" "${HOME}/.vim.old" \
     || die "Could not copy ${HOME}/.vim to ${HOME}/.vim.old"
 else
@@ -142,11 +142,14 @@ done
 
 cp "${here}/gvimrc" "${here}/build/gvimrc.min"
 
-# Concatenate vimrc and vimrc-labs/vimrc into build/vimrc.min
+# Concatenate vimrc and any vimrc-labs/vimrc into build/vimrc.min
 touch "${here}/build/vimrc.min"
 cat /dev/null > "${here}/build/vimrc.min"
 cat "${here}/vimrc" >> "${here}/build/vimrc.min"
-cat "${here}/vimrc-labs/vimrc" >> "${here}/build/vimrc.min"
+
+if [ -d "${here}/vimrc-labs/vimrc" ]; then
+  cat "${here}/vimrc-labs/vimrc" >> "${here}/build/vimrc.min"
+fi
 
 # Minify
 minify_vim_script_file_in_place "${here}/build/vimrc.min"
@@ -160,7 +163,7 @@ ln -sfv "${here}/build/gvimrc.min" "${HOME}/.gvimrc"
 ln -sfvn "${here}/build/vim.min" "${HOME}/.vim"
 
 echo
-echo "Linking files in bin"
+echo "Linking files in bin/"
 
 # Create $HOME/bin if it doesn't already exist
 if [ ! -d "${HOME}/bin" ]; then
