@@ -422,9 +422,11 @@ set synmaxcol=256
 "" Fugitive
 ""
 
+nnoremap <leader>ga :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gg :Gstatus<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gp :Git push<cr>
 nnoremap <leader>gs :Git status -sb<cr>
