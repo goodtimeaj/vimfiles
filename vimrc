@@ -354,6 +354,9 @@ augroup vimrcEx
   " Make Python follow PEP8
   au FileType python set sts=4 ts=4 sw=4 tw=79
 
+  " Use 4 spaces for Java
+  au FileType java set sts=4 ts=4 sw=4
+
   " Make sure all markdown files have the correct filetype
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 
