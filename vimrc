@@ -389,6 +389,21 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 " =============================================================================
+" Open urls in the default browser
+" =============================================================================
+
+function! OpenUrl()
+  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
+  echo s:uri
+  if s:uri != ""
+    silent exec "!open ".shellescape(s:uri, 1)
+  else
+    echo "No Url found in line."
+  endif
+endfunction
+map <leader>j :call OpenUrl()<cr>
+
+" =============================================================================
 " Performance
 " =============================================================================
 
