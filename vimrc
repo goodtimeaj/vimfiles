@@ -418,10 +418,10 @@ set ttimeout
 set ttimeoutlen=100
 
 " Update syntax highlighting for more lines increased scrolling performance
-syntax sync minlines=256
+syntax sync minlines=512
 
 " Don't syntax highlight long lines
-set synmaxcol=256
+set synmaxcol=512
 
 " Don't redraw screen while executing macros, registers
 " set lazyredraw
