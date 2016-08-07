@@ -31,9 +31,6 @@
 [submodule "colors/railscasts"]
 	path = colors/railscasts
 	url = https://github.com/jpo/vim-railscasts-theme.git
-[submodule "colors/sahara"]
-	path = colors/sahara
-	url = https://github.com/tejr/sahara.git
 [submodule "colors/solarized"]
 	path = colors/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
