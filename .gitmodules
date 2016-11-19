@@ -181,3 +181,6 @@
 [submodule "langs/javascript"]
 	path = langs/javascript
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "langs/vim-pug"]
+	path = langs/vim-pug
+	url = https://github.com/digitaltoad/vim-pug.git
