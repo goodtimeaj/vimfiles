@@ -112,6 +112,9 @@ nnoremap gJ Jdiw
 "" Other
 ""
 
+" Set jk to escape in insert mode
+inoremap jk <esc>`^
+
 " Don't reset cursor to start of line when moving around
 set nostartofline
 
@@ -120,9 +123,6 @@ set noshowmatch
 
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
-
-" Set <c-c> to escape in insert mode
-inoremap <c-c> <esc>
 
 " Set <c-j> to underscore in insert mode
 inoremap <c-j> _
