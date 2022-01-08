@@ -148,12 +148,6 @@ set noerrorbells    " Disable error bells
 set shortmess=atI   " Don't show the Vim intro message
 set number          " Show line numbers
 
-" Use relative line numbers - This is now handled by numbers.vim
-" if exists("&relativenumber")
-"   set relativenumber
-"   au BufReadPost * set relativenumber
-" endif
-
 ""
 "" Status Line
 ""
@@ -482,13 +476,6 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
 
 nmap <leader>` ysiw`
 nmap <leader>' ysiw'
-
-" =============================================================================
-" Application Interaction
-" =============================================================================
-
-command! Marked silent !open -a "Marked.app" "%:p"
-nnoremap <silent> <leader>m :Marked<cr>\|:redraw!<cr>
 
 " =============================================================================
 " Typos, Errors, and Typing Discipline
