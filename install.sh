@@ -129,8 +129,7 @@ for file in "$here"/*; do
 
   if [ -d "$file" ] &&
      [ "$dir_name" != "build" ] &&
-     [ "$dir_name" != "bin" ] &&
-     [ "$dir_name" != "vimrc-labs" ]; then
+     [ "$dir_name" != "bin" ]; then
     for plugin in "$file"/*; do
       plugin_name="$(basename "$plugin")"
       cp -R "$plugin" "${here}/build/vim.min/bundle/${plugin_name}"
@@ -146,10 +145,6 @@ cp "${here}/gvimrc" "${here}/build/gvimrc.min"
 touch "${here}/build/vimrc.min"
 cat /dev/null > "${here}/build/vimrc.min"
 cat "${here}/vimrc" >> "${here}/build/vimrc.min"
-
-if [ -d "${here}/vimrc-labs/vimrc" ]; then
-  cat "${here}/vimrc-labs/vimrc" >> "${here}/build/vimrc.min"
-fi
 
 # Minify
 minify_vim_script_file_in_place "${here}/build/vimrc.min"
